@@ -1,9 +1,7 @@
 module.exports.cardValidator = cardValidator;
-
 function cardValidator(input){
   let str = confirmValidInput(input);
   let array = toArrayOfNumbers(str);
-  // array.reverse(); 
   let arraySecondPositions = newArrayOfPositions(1, array);
   let arrayFirstPositions = newArrayOfPositions(0, array);
   let arrayDouble = doubleNumbers(arraySecondPositions);
