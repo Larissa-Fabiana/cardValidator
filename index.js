@@ -13,7 +13,7 @@ function cardValidator(input){
 }
 function confirmValidInput(val){
   let valString = val.toString();
-  if(typeof val === "string"){
+  if(typeof val === 'string'){
     throw new TypeError('Insira apenas numeros');
   }else if( valString === '' || valString.length < 14 || valString.length > 16){
     throw new Error('Insira um numero entre 14 e 16 digitos');
@@ -25,7 +25,7 @@ function confirmValidInput(val){
 }
 function toArrayOfNumbers(strOfNum){
   let arr =[];
-  for(caracter in strOfNum){
+  for(let caracter in strOfNum){
     arr.push(parseInt(strOfNum[caracter]));
   }
   arr.reverse(); 
@@ -41,8 +41,8 @@ function newArrayOfPositions (position, arr){
 }
 function doubleNumbers(arr){
   let arrayDouble = [];
-  for(a in arr){
-    double = arr[a]*2;
+  for(let a in arr){
+    let double = arr[a]*2;
     if (double > 9){
       arrayDouble.push(double - 9);
     }else{
@@ -52,7 +52,7 @@ function doubleNumbers(arr){
   return arrayDouble;
 }
 function sum(arr){
-  return arr.reduce( ( total, num ) => {return total + num}, 0 );
+  return arr.reduce( ( total, num ) => {return total + num;}, 0 );
 }
 function returnTrueOrFalse(sum){
   if(sum % 10 === 0){
