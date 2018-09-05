@@ -10,8 +10,8 @@ Exemplos de uso:
 
 ```
 $node
-> let validate = require('cardValidator')
->validade(5555666677778884);
+> let validate = require('larissa-card-validator');
+>validade.cardValidator(5555666677778884);
 ```
 
 ## Versão 1.0.0
