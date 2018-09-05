@@ -1,6 +1,6 @@
 {
   "name": "larissa-card-validator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "directories": {
@@ -23,7 +23,7 @@
     "url": "git+https://github.com/Larissa-Fabiana/cardValidator.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Larissa Fabiana",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Larissa-Fabiana/cardValidator/issues"

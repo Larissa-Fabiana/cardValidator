@@ -1,14 +1,10 @@
 module.exports.cardValidator = cardValidator;
+
 function cardValidator(input){
-  let str = confirmValidInput(input);
-  let array = toArrayOfNumbers(str);
-  let arraySecondPositions = newArrayOfPositions(1, array);
-  let arrayFirstPositions = newArrayOfPositions(0, array);
-  let arrayDouble = doubleNumbers(arraySecondPositions);
-  let total = sum(arrayFirstPositions) + sum(arrayDouble);
-  let result = returnTrueOrFalse(total);
-  return result;
+  let finalValidation = (confirmValidInput(input)) % 10 === 0 ? true : false;
+  return finalValidation;
 }
+
 function confirmValidInput(val){
   let valString = val.toString();
   if(typeof val === 'string'){
@@ -18,44 +14,53 @@ function confirmValidInput(val){
   }else if( valString.indexOf('.') !== -1){
     throw new Error('Insira numeros sem caracteres');
   }else{
-    return valString;
+    return toArrayOfNumbers(valString);
   }
 }
+
 function toArrayOfNumbers(strOfNum){
   let arr =[];
   for(let caracter in strOfNum){
     arr.push(parseInt(strOfNum[caracter]));
   }
   arr.reverse(); 
-  return arr;
+  return newArrayOfFirstPositions(arr) + newArrayOfSecondPositions(arr);
 }
-function newArrayOfPositions (position, arr){
+
+function newArrayOfFirstPositions (arr){
+  let position = 0;
   let arrayPositions = [];
   while(position < arr.length){
     arrayPositions.push(arr[position]);
     position+=2;
   }
-  return arrayPositions;
+  return sum(arrayPositions);
 }
+
+function newArrayOfSecondPositions (arr){
+  let position = 1;
+  let arrayPositions = [];
+  while(position < arr.length){
+    arrayPositions.push(arr[position]);
+    position+=2;
+  }
+  return doubleNumbers(arrayPositions);
+}
+
 function doubleNumbers(arr){
   let arrayDouble = [];
   for(let a in arr){
-    let double = arr[a]*2;
+    const double = arr[a]*2;
     if (double > 9){
       arrayDouble.push(double - 9);
     }else{
       arrayDouble.push(double);
     }
   }
-  return arrayDouble;
+  return sum(arrayDouble);
 }
-function sum(arr){
+
+function sum(arr){ 
   return arr.reduce( ( total, num ) => {return total + num;}, 0 );
 }
-function returnTrueOrFalse(sum){
-  if(sum % 10 === 0){
-    return true;
-  }else{
-    return false;
-  }
-}
+
