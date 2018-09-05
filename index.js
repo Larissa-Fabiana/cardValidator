@@ -12,11 +12,11 @@ function cardValidator(input){
 function confirmValidInput(val){
   let valString = val.toString();
   if(typeof val === 'string'){
-    throw new TypeError('Insira apenas numeros');
+    throw new Error('Insira apenas numeros');
   }else if( valString === '' || valString.length < 14 || valString.length > 16){
     throw new Error('Insira um numero entre 14 e 16 digitos');
   }else if( valString.indexOf('.') !== -1){
-    throw new TypeError('Insira numeros sem caracteres');
+    throw new Error('Insira numeros sem caracteres');
   }else{
     return valString;
   }
